@@ -1,93 +1,149 @@
 
-export const scrollTrigger = (ref, f, values, customStart, customEnd, log) => {
-    return () => {
-        const start = top(ref, customStart)
-        const end = bottom(ref, customEnd)
-        const percentages = []
-        if (log) {
-            ref.current.style.background = "red"
-            console.log(window.scrollY, start, end);
+export const scrollTrigger = (_ref, f, values, customStart, customEnd, log) => {
+
+
+    const ref = _ref.current || _ref.target
+    if (!ref) return
+    const start = top(ref, customStart)
+    const end = bottom(ref, customEnd)
+    const percentages = []
+    const scroll = window.scrollY
+    if (log) {
+        ref.style.background = "brown"
+
+        console.log(scroll, start, end);
+    }
+
+    if (start > scroll && !ref.store) {
+        for (let i = 0; values.length > i; i++) {
+            percentages.push(values[i][0])
         }
+        f(percentages, ref)
+        ref.store = true
+    } else if (scroll > end && !ref.store) {
 
-        if (start > window.scrollY && !ref.current.store) {
-            for (let i = 0; values.length > i; i++) {
-                percentages.push(values[i][0])
-            }
-            f(percentages, ref.current)
-            ref.current.store = true
-        } else if (window.scrollY > end && !ref.current.store) {
-
-            for (let i = 0; values.length > i; i++) {
-                percentages.push(values[i][1])
-            }
-            f(percentages, ref.current);
-            ref.current.store = true
+        for (let i = 0; values.length > i; i++) {
+            percentages.push(values[i][1])
         }
+        f(percentages, ref);
+        ref.store = true
+    }
 
-        if (window.scrollY <= end && start <= window.scrollY) {
-            for (let i = 0; values.length > i; i++) {
-                percentages.push((((window.scrollY - start) / (end - start)) * ((values[i][1]) - (values[i][0]))) + (values[i][0]))
-            }
-            f(percentages, ref.current)
-            if (!ref.current.store) {
-                ref.current.store = false
-            }
+    if (scroll <= end && start <= scroll) {
+        for (let i = 0; values.length > i; i++) {
+            percentages.push((((scroll - start) / (end - start)) * ((values[i][1]) - (values[i][0]))) + (values[i][0]))
+        }
+        f(percentages, ref)
+        if (!ref.store) {
+            ref.store = false
         }
     }
 };
 
-export const scrollEvent = (f) => {
+// export const scrollEvent = (f) => {
 
+//     return () => {
+//         window.addEventListener('scroll', () => {
+//             if (Array.isArray(f)) {
+//                 for (let i = 0; f.length > i; i++) {
+//                     if (f[i]) {
+//                         f[i]()
+//                     }
+//                 }
+//             } else {
+//                 f()
+//             }
+//         });
+//     }
+// }
+
+export const scrollEvent = (setScrollY) => {
+    const handleScroll = () => {
+        setScrollY(window.scrollY);
+    };
     return () => {
-        window.addEventListener('scroll', () => {
-            if (Array.isArray(f)) {
-                for (let i = 0; f.length > i; i++) {
-                    if (f[i]) {
-                        f[i]()
-                    }
-                }
-            } else {
-                f()
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }
+}
+
+export const updateTransform = (wrapper, f) => {
+    const factor = 1 // for future adjustments of scroll speed
+    const translateY = -window.scrollY * factor;
+
+    if (wrapper[0].current) {
+        const contentHeight = wrapper[1].current.clientHeight;
+        if ((-(contentHeight - window.innerHeight) - translateY) <= -window.scrollY) {
+            wrapper[1].current.style.transform = `translateY(${translateY}px)`;
+            wrapper[0].current.style.height = (contentHeight + translateY) + 'px';
+        }
+    }
+
+    if (Array.isArray(f)) {
+        for (let i = 0; f.length > i; i++) {
+            if (f[i]) {
+                f[i]()
             }
-        });
+        }
+    } else {
+        f()
+    }
+};
+
+export const resizeEvent = (wrapper, f) => {
+    return () => {
+        updateTransform(wrapper, f);
+        window.addEventListener('resize', updateTransform);
+
+        return () => {
+            window.removeEventListener('resize', updateTransform);
+        };
     }
 }
 
 function top(ref, customStart) {
 
     let dist = distance(ref);
-
+    const height = window.innerHeight / 2
+    const clientHeight = ref.clientHeight / 2
     if (customStart) {
         if (Array.isArray(customStart) && customStart.length) {
             if (customStart.length === 1) {
-                return dist - (innerHeight * (1 - customStart[0]))
+                return dist - (height * (1 - customStart[0]))
             } else if (customStart.length === 2) {
-                return dist - (innerHeight * (1 - customStart[0])) - customStart[1]
+                return dist - (height * (1 - customStart[0])) + (clientHeight * customStart[1])
+
             } else if (customStart.length === 3) {
-                return dist - (innerHeight * (1 - customStart[0])) - customStart[1] + (ref.current.clientHeight * customStart[2])
+                return dist - (height * (1 - customStart[0])) + (clientHeight * customStart[1]) - (customStart[2] / 2)
+
             }
         } else {
-            return dist - (innerHeight * (customStart ? (1 - customStart) : 1))
+            return dist - (height * (customStart ? (1 - customStart) : 1))
         }
     }
 
-    else return dist - innerHeight
+    else return dist - height
 }
 
 function bottom(ref, customEnd) {
     let dist = distance(ref)
-    dist += ref.current.clientHeight
+    const height = window.innerHeight / 2
+    const clientHeight = ref.clientHeight / 2
+
+    dist += clientHeight
     if (customEnd) {
         if (Array.isArray(customEnd) && customEnd.length) {
             if (customEnd.length === 1) {
-                return dist - (innerHeight * customEnd[0])
+                return dist - (height * customEnd[0])
             } else if (customEnd.length === 2) {
-                return dist - (innerHeight * customEnd[0]) + customEnd[1]
+                return dist - (height * customEnd[0]) - (clientHeight * customEnd[1])
             } else if (customEnd.length === 3) {
-                return dist - (innerHeight * customEnd[0]) + customEnd[1] - (ref.current.clientHeight * customEnd[2])
+                return dist - (height * customEnd[0]) - (clientHeight * customEnd[1]) + (customEnd[2] / 2)
             }
         } else {
-            return dist - (innerHeight * (customEnd ? customEnd : 1))
+            return dist - (height * (customEnd ? customEnd : 1))
         }
     }
     else return dist
@@ -95,11 +151,11 @@ function bottom(ref, customEnd) {
 
 function distance(ref) {
     let distance = 0;
-    let currentElement = ref.current;
+    let currentElement = ref;
 
     while (currentElement.offsetParent) {
         distance += currentElement.offsetTop;
         currentElement = currentElement.offsetParent;
     }
-    return distance
+    return (distance / 2);
 }

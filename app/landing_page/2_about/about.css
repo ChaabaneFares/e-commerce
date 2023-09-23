@@ -1,6 +1,6 @@
-.about { width: 100%; height: 20vw; padding: 0 16.66%; display: flex; align-items: center;  }
+.about { width: 100%; height: 485px; padding: 0 16.66%; display: flex; align-items: center; }
 .about .wrapper { display: flex; justify-content: space-between; position: relative;  }
-.about .wrapper div { will-change: transform; margin-top: -5vw; transform: translateY(0vw); transition: .4s transform; }
+.about .wrapper div { will-change: transform; margin-top: -5vw; transform: translateY(0vw); transition: .2s ease-out; }
 .about .wrapper div p { color: #86898c; position: absolute; top: calc(-1.17vw + (-1.427vw * 0.8)); font-size: 1.17vw;  }
 .about .wrapper div h1 { color: white; font-weight: 500; font-size: clamp(55px, 3.66vw, 20px); letter-spacing: 0.1em; margin-top: calc(-1.427vw * 0.8);  }
 .about .desc { width: 65%; color: #abafb3; line-height: 1.8; font-size: clamp(25px, 1.83vw, 8px);  }
@@ -8,12 +8,13 @@
 .about .about strong { color: white !important; font-weight: 600; }
 
 @media (max-width: 1366px) { 
+    .about { height: 35.5vw;    }
     .about .desc { line-height: 1.5;  }
-    .about .wrapper div h1 { font-size: 2.92vw;   }
-    .about .desc  {    font-size: 1.4vw;  }
+    .about .wrapper div h1 { font-size: 4vw;   }
+    .about .desc  {    font-size: 1.75vw;  }
 
 }
-@media (max-width: 900px) { 
+@media (max-width: 1030px) { 
     
     .about { padding: 0 8.33%;  }
     .about .wrapper div h1 { font-size: 4.5vw;   }
@@ -22,9 +23,16 @@
 
 }
 @media (max-width: 600px) {
-    .about { padding: 0 4%;  }
+    .about .wrapper div h1 { font-size: 5vw;   }
+    .about { padding: 0 4%; height: 50vw; }
     .about .wrapper { flex-direction: column;  }
-    .about .desc { width: 100%;  margin-top: 3vw; font-size: 2vw; line-height: 1.8; letter-spacing: 0.01em; }
+    .about .desc { width: 100%;  margin-top: 3vw; font-size: 2.275vw; line-height: 1.8; letter-spacing: 0.01em; }
+}
 
-
+@media (max-width: 500px) { 
+    .about .wrapper div h1 { font-size: 10vw;   }
+    .about .wrapper div p { top: -4vw; font-size: 3.75vw;  }
+    .about { padding: 0 4%; height: 100vw; }
+    .about .wrapper { flex-direction: column;  }
+    .about .desc { width: 100%;  margin-top: 3.75vw; font-size: 3.6vw; line-height: 1.2; letter-spacing: 0.01em; }
 }
