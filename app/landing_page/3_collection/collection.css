@@ -1,0 +1,11 @@
+@keyframes collection-arrow {
+    0% {
+      margin-left: 1.5vw;
+    }
+    50% {
+      margin-left: 3vw;
+    }
+    100% {
+      margin-left: 1.5vw;
+    }
+  }

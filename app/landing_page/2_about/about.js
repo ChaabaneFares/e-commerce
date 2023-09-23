@@ -1,11 +1,11 @@
 import React from 'react';
 import './about.css';
 
-const About = React.forwardRef((props, ref) => {
+export default function about({ _ref }) {
   return (
     <section className='about'>
       <div className='wrapper'>
-        <div ref={ref}>
+        <div ref={_ref}>
           <p>We are</p>
           <h1>vawzen</h1>
         </div>
@@ -15,8 +15,5 @@ const About = React.forwardRef((props, ref) => {
           are. Every product is <strong>crafted with love & care</strong>.
         </p>
       </div>
-    </section>
-  );
-});
-
-export default About;
+    </section>)
+}
