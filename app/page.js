@@ -15,20 +15,35 @@ export default function Home() {
 
   useEffect(scrollEvent(setScrollY), []);
 
-
-
   useEffect(resizeEvent(wrapper, animations(about, collection)), [scrollY]);
 
 
   return (
-    <main ref={wrapper[0]} style={{ overflow: 'hidden' }}>
-      <div ref={wrapper[1]} style={{ transition: 'transform 0.5s ease-out' }} >
+    <>
+      <main ref={wrapper[0]} className='wrapper' >
+        <div ref={wrapper[1]} className='content-wrapper'  >
 
-        <div style={{ height: '100vw' }} />
-        <About _ref={about} />
-        <Collection _ref={collection} />
-        <div style={{ height: '100vw' }} />
-      </div>
-    </main>
+          <div style={{ height: '100vw' }} />
+          <About _ref={about} />
+          <Collection _ref={collection} />
+          <div style={{ height: '100vw' }} />
+        </div>
+      </main>
+
+
+
+
+
+
+
+
+
+
+
+      <style>{`
+            .wrapper { overflow: hidden;  }
+            .content-wrapper { transition: transform 0.7s ease-out;  }
+      `}</style>
+    </>
   )
 }

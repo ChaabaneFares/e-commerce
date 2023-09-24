@@ -21,7 +21,6 @@ export const scrollTrigger = (_ref, f, values, customStart, customEnd, log) => {
         f(percentages, ref)
         ref.store = true
     } else if (scroll > end && !ref.store) {
-
         for (let i = 0; values.length > i; i++) {
             percentages.push(values[i][1])
         }
@@ -70,6 +69,7 @@ export const scrollEvent = (setScrollY) => {
 }
 
 export const updateTransform = (wrapper, f) => {
+    if (!wrapper || !wrapper.length) return
     const factor = 1 // for future adjustments of scroll speed
     const translateY = -window.scrollY * factor;
 
@@ -79,16 +79,6 @@ export const updateTransform = (wrapper, f) => {
             wrapper[1].current.style.transform = `translateY(${translateY}px)`;
             wrapper[0].current.style.height = (contentHeight + translateY) + 'px';
         }
-    }
-
-    if (Array.isArray(f)) {
-        for (let i = 0; f.length > i; i++) {
-            if (f[i]) {
-                f[i]()
-            }
-        }
-    } else {
-        f()
     }
 };
 

@@ -1,11 +1,41 @@
-@keyframes collection-arrow {
-    0% {
-      margin-left: 1.5vw;
-    }
-    50% {
-      margin-left: 3vw;
-    }
-    100% {
-      margin-left: 1.5vw;
-    }
-  }
+@keyframes collection-arrow { 0% { margin-left: 1.5vw; } 50% { margin-left: 3vw; } 100% { margin-left: 1.5vw; } }
+@keyframes collection-arrow-sd { 0% { right: 3vw; } 50% { right: 2.5vw; } 100% { right: 3vw; } }
+@keyframes collection-arrow-mb { 0% { right: 8vw; } 50% { right: 5.5vw; } 100% { right: 8vw; } }
+
+
+.collection { padding: 0 16.66%; width: 100%; }
+.collection .wrapper { width: 100%; display: flex; align-items: center; font-size: 2.2vw; position: relative;  }
+.collection .left-container { width: 50%; display: flex; flex-direction: column; align-items: flex-end; justify-content: center;  }
+.collection .left-container .content-wrapper { margin-right: 20%;  }
+.collection h1 { font-weight: 600;  }
+.collection .right-container { width: 50%; display: flex; flex-direction: column; justify-content: center;  }
+.collection .right-container .content-wrapper { margin-left: 10%;  }
+.collection .arrow-container { display: flex; align-items: center;  }
+.collection .h1 { font-weight: 600;  }
+.collection .arrow { margin-left: 1.5vw; margin-top: .65vw; animation: collection-arrow 1.2s ease infinite; width: 4vw; }
+.collection .img { position: absolute; height: 90%; border-radius: 35%/50%; will-change: left; transition: 0.7s ease-out; width: 47.5%; object-fit: cover; object-position: center;  }
+/* .collection .wrapper:nth-child(even) .img { left: calc(100% - 47.5%); } */
+.collection button { display: none;  }
+
+
+
+@media (max-width: 1024px) { 
+   .collection .content-wrapper {display: none;}
+   .collection .img { position: relative; height: 70%; width: 100%;  }
+   .collection .wrapper { flex-direction: column; overflow: visible; }
+   .collection .arrow { margin-left: 0; margin-top: 0; animation: collection-arrow-sd 1.5s ease infinite; width: 3vw;  position: absolute; right: 3vw;}
+   .collection .wrapper:nth-child(odd) .img { left: 125% }
+   .collection .wrapper:nth-child(even) .img { left: -125% }
+   .collection button { margin-top: 5%; background: white; outline: none; border: none; height: 8.5vw; width: 26.2vw; border-radius: 5.48vw; display: flex; align-items: center; justify-content: center; position: relative;  }
+   .collection h4 { color: #575656; white-space: nowrap; font-weight: 600; font-size: 2.1vw; margin-left: -3.5vw;  }
+  
+}
+@media (max-width: 768px) { 
+  .collection { padding: 0 6%; width: 100%; }
+  .collection .img { height: 55%;  }
+
+  .collection button { margin-top: 10%; height: 15vw; width: 75%; border-radius: 30vw;   }
+  .collection h4 { color: black; white-space: nowrap; font-weight: 500; font-size: 5.5vw; margin-left: -7vw;  }
+  .collection .arrow { margin-left: 0; margin-top: 0; animation: collection-arrow-mb 1.5s ease infinite; width: 6.5vw;  position: absolute; right: 8vw;}
+
+}
