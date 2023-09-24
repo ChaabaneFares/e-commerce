@@ -82,9 +82,10 @@ export const updateTransform = (wrapper, f) => {
     }
 };
 
-export const resizeEvent = (wrapper, f) => {
+export const resizeEvent = (wrapper) => {
+    if(!window) return
     return () => {
-        updateTransform(wrapper, f);
+        updateTransform(wrapper);
         window.addEventListener('resize', updateTransform);
 
         return () => {
