@@ -4,10 +4,9 @@ import { scrollTrigger } from '../vawzen/functions';
 
 
 
-export function animations(about, collection) {
-  if (!window || !window.innerWidth) return
+export function animations(windowSize, about, collection) {
 
-  const about_animation = innerWidth > 600 ? useCallback(
+  const about_animation = windowSize > 600 ? useCallback(
     scrollTrigger(about, (v) => {
       about.current.style.transform = `translateY(${v[0]}vw)`;
     }, [[0, 5]], 0, 0.5),
@@ -17,7 +16,7 @@ export function animations(about, collection) {
 
 
   const collection_animation = collection.map((e, i) => {
-    const condition = innerWidth > 1024
+    const condition = windowSize > 1024
     const values = condition ? [[100, 0], [47.5, 0]] : [[125, 0], [-125, 0]]
     return useCallback(
       scrollTrigger(e.ref, (v) => {

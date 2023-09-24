@@ -9,6 +9,7 @@ import collection_data from "@/data/landing/3_collection.json"
 import { animations } from "@/functions/landing_functions/landing_functions"
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
+  const [windowSize, setWS] = useState(0);
   const wrapper = [useRef(null), useRef(null)]
 
   const about = useRef(null);
@@ -17,7 +18,7 @@ export default function Home() {
 
   useEffect(scrollEvent(setScrollY), []);
 
-  useEffect(resizeEvent(wrapper, animations(about, collection)), [scrollY]);
+  useEffect(resizeEvent(setWS, wrapper, animations(windowSize, about, collection)), [scrollY]);
 
 
   return (

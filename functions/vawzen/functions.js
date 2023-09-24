@@ -68,7 +68,8 @@ export const scrollEvent = (setScrollY) => {
     }
 }
 
-export const updateTransform = (wrapper, f) => {
+export const updateTransform = (setWS, wrapper) => {
+    setWS(innerWidth)
     if (!wrapper || !wrapper.length) return
     const factor = 1 // for future adjustments of scroll speed
     const translateY = -window.scrollY * factor;
@@ -82,10 +83,10 @@ export const updateTransform = (wrapper, f) => {
     }
 };
 
-export const resizeEvent = (wrapper) => {
+export const resizeEvent = (setWS, wrapper) => {
     return () => {
-        if(!window) return
-        updateTransform(wrapper);
+        if (!window) return
+        updateTransform(setWS, wrapper);
         window.addEventListener('resize', updateTransform);
 
         return () => {
