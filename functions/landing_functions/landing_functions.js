@@ -5,6 +5,7 @@ import { scrollTrigger } from '../vawzen/functions';
 
 
 export function animations(about, collection) {
+  if (!window || !window.innerWidth) return
 
   const about_animation = innerWidth > 600 ? useCallback(
     scrollTrigger(about, (v) => {
