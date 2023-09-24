@@ -1,7 +1,6 @@
 import './collection.css'
 
 export default function collection({ _ref }) {
-
     return (
         <>
             <section className='collection' >
@@ -10,7 +9,7 @@ export default function collection({ _ref }) {
                         <div className='left-container' >
                             <div className='content-wrapper' >
                                 <h1>
-                                    Featured
+                                    {e.title}
                                 </h1>
                                 <h1>
                                     Collection
@@ -27,10 +26,10 @@ export default function collection({ _ref }) {
                             </div>
                         </div>
 
-                        <img className='img' ref={_ref[i]} src={`/landing/collection/${i}.jpg`} />
+                        <img className='img' ref={_ref[i].ref} src={e.img} />
                         <button>
                             <h4>
-                                Chair Collection
+                            {e.title} Collection
                             </h4>
                             <img src="/landing/collection/arrow-mb.svg" className='arrow' />
 

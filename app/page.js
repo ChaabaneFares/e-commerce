@@ -4,13 +4,15 @@ import { resizeEvent, scrollTrigger, scrollEvent } from '@/functions/vawzen/func
 
 import About from "./landing_page/2_about/about"
 import Collection from "./landing_page/3_collection/collection"
+import collection_data from "@/data/landing/3_collection.json"
+
 import { animations } from "@/functions/landing_functions/landing_functions"
 export default function Home() {
   const [scrollY, setScrollY] = useState(0);
   const wrapper = [useRef(null), useRef(null)]
 
   const about = useRef(null);
-  const collection = [useRef(null), useRef(null), useRef(null)];
+  const collection = collection_data.map((data) => ({ ...data, ref: useRef(null) }));
 
 
   useEffect(scrollEvent(setScrollY), []);

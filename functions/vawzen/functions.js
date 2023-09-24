@@ -14,18 +14,18 @@ export const scrollTrigger = (_ref, f, values, customStart, customEnd, log) => {
         console.log(scroll, start, end);
     }
 
-    if (start > scroll && !ref.store) {
+    if (start > scroll && !ref.vawzen) {
         for (let i = 0; values.length > i; i++) {
             percentages.push(values[i][0])
         }
         f(percentages, ref)
-        ref.store = true
-    } else if (scroll > end && !ref.store) {
+        ref.vawzen = true
+    } else if (scroll > end && !ref.vawzen) {
         for (let i = 0; values.length > i; i++) {
             percentages.push(values[i][1])
         }
         f(percentages, ref);
-        ref.store = true
+        ref.vawzen = true
     }
 
     if (scroll <= end && start <= scroll) {
@@ -33,8 +33,8 @@ export const scrollTrigger = (_ref, f, values, customStart, customEnd, log) => {
             percentages.push((((scroll - start) / (end - start)) * ((values[i][1]) - (values[i][0]))) + (values[i][0]))
         }
         f(percentages, ref)
-        if (!ref.store) {
-            ref.store = false
+        if (ref.vawzen) {
+            ref.vawzen = false
         }
     }
 };
