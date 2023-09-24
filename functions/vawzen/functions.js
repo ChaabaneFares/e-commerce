@@ -14,19 +14,18 @@ export const scrollTrigger = (_ref, f, values, customStart, customEnd, log) => {
         console.log(scroll, start, end);
     }
 
-    if (start > scroll && !ref.store) {
+    if (start > scroll && !ref.vawzen) {
         for (let i = 0; values.length > i; i++) {
             percentages.push(values[i][0])
         }
         f(percentages, ref)
-        ref.store = true
-    } else if (scroll > end && !ref.store) {
-
+        ref.vawzen = true
+    } else if (scroll > end && !ref.vawzen) {
         for (let i = 0; values.length > i; i++) {
             percentages.push(values[i][1])
         }
         f(percentages, ref);
-        ref.store = true
+        ref.vawzen = true
     }
 
     if (scroll <= end && start <= scroll) {
@@ -34,8 +33,8 @@ export const scrollTrigger = (_ref, f, values, customStart, customEnd, log) => {
             percentages.push((((scroll - start) / (end - start)) * ((values[i][1]) - (values[i][0]))) + (values[i][0]))
         }
         f(percentages, ref)
-        if (!ref.store) {
-            ref.store = false
+        if (ref.vawzen) {
+            ref.vawzen = false
         }
     }
 };
@@ -69,7 +68,8 @@ export const scrollEvent = (setScrollY) => {
     }
 }
 
-export const updateTransform = (wrapper, f) => {
+export const updateTransform = (setWS, wrapper) => {
+    if (!wrapper || !wrapper.length) return
     const factor = 1 // for future adjustments of scroll speed
     const translateY = -window.scrollY * factor;
 
@@ -81,20 +81,14 @@ export const updateTransform = (wrapper, f) => {
         }
     }
 
-    if (Array.isArray(f)) {
-        for (let i = 0; f.length > i; i++) {
-            if (f[i]) {
-                f[i]()
-            }
-        }
-    } else {
-        f()
-    }
+    setWS(innerWidth)
+
 };
 
-export const resizeEvent = (wrapper, f) => {
+export const resizeEvent = (setWS, wrapper) => {
     return () => {
-        updateTransform(wrapper, f);
+
+        updateTransform(setWS, wrapper);
         window.addEventListener('resize', updateTransform);
 
         return () => {
