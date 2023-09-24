@@ -5,7 +5,6 @@ import { scrollTrigger } from '../vawzen/functions';
 
 
 export function animations(about, collection) {
-  if (!window || !window.innerWidth) return
 
 
 }
