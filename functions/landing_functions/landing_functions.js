@@ -6,19 +6,19 @@ import { scrollTrigger } from '../vawzen/functions';
 
 export function animations(windowSize, about, collection) {
 
-  const about_animation = windowSize > 600 ? useCallback(
+  useCallback(
     scrollTrigger(about, (v) => {
       about.current.style.transform = `translateY(${v[0]}vw)`;
     }, [[0, 5]], 0, 0.5),
     [about]
-  ) : null
+  );
 
 
 
   const collection_animation = collection.map((e, i) => {
     const condition = windowSize > 1024
     const values = condition ? [[100, 0], [47.5, 0]] : [[125, 0], [-125, 0]]
-    return useCallback(
+    useCallback(
       scrollTrigger(e.ref, (v) => {
         if (condition) {
           const values = i % 2 === 0 ? v : [100 - v[0], 47.5 - v[1]];
@@ -30,6 +30,9 @@ export function animations(windowSize, about, collection) {
       [e]
     );
   });
+
+
+  return
 }
 
 export function about_desc(desc) {
