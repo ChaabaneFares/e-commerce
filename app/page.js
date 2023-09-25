@@ -14,8 +14,9 @@ export default function Home() {
 
   const about = useRef(null);
   const collection = collection_data.map((data) => ({ ...data, ref: useRef(null) }));
+  const arrivals = useRef(null);
 
-  
+
   useEffect(scrollEvent(setScrollY), []);
 
   useEffect(resizeEvent(setWS, wrapper, animations(wS, about, collection)), [scrollY, wS]);
@@ -23,13 +24,13 @@ export default function Home() {
 
   return (
     <>
-      <main ref={wrapper[0]} className='wrapper' >
-        <div ref={wrapper[1]} className='content-wrapper'  >
+      <main ref={wrapper[0]}>
+        <div ref={wrapper[1]}>
 
           <div style={{ height: '100vw' }} />
           <About _ref={about} />
           <Collection _ref={collection} />
-          <Arrivals />
+          <Arrivals _ref={arrivals} />
           <div style={{ height: '100vw' }} />
         </div>
       </main>
@@ -45,8 +46,8 @@ export default function Home() {
 
 
       <style>{`
-            .wrapper { overflow: hidden;  }
-            .content-wrapper { transition: transform 0.7s ease-out;  }
+            main { overflow: hidden;  }
+            main div:first-child:not(div ~ div) { transition: transform 0.7s ease-out; }
       `}</style>
     </>
   )

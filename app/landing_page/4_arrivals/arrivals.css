@@ -1,0 +1,41 @@
+
+.arrivals { margin-top: 16vw;  }
+.arrivals .title { text-align: center; font-size: 3vw; color: white; margin-bottom: 7vw;  }
+.arrivals .wrapper { height: 30vw; width: 100%; display: flex; cursor: pointer;  }
+.arrivals .container { min-width: 17.7vw; height: 100%; display: block; margin-left: 1vw;  }
+.arrivals .img-container { width: 100%; height: 83%; background-color: #101010; border-radius: 2vw; display: flex; justify-content: center; align-items: center;  }
+.arrivals img { width: 80%; height: 80%; object-fit: contain; object-position: center;  }
+.arrivals .infos { height: 17%; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3%;  }
+.arrivals .infos h1 { color: white; font-weight: 700; font-size: 1.2vw;  }
+.arrivals .infos h3 { color: #a1a1a1; font-weight: 700; font-size: 1.1vw;  }
+
+
+@media (max-width: 1024px) { 
+    .arrivals .title { font-size: 3.7vw; }
+    .arrivals .wrapper { height: 37vw; }
+    .arrivals .container { min-width: 21.5vw; margin-left: 1.5vw;  }
+    .arrivals .infos { gap: 5%;  }
+    .arrivals .infos h1 { font-size: 1.5vw;  }
+    .arrivals .infos h3 { font-size: 1.2vw;  }
+    }
+
+@media (max-width: 768px) { 
+    .arrivals .title { font-size: 4vw; margin-bottom: 8vw; }
+    .arrivals .wrapper { height: 42vw; }
+    .arrivals .container { min-width: 24vw; margin-left: 1.5vw;  }
+    .arrivals .infos { gap: 5%; margin-top: 5%;  }
+    .arrivals .infos h1 { font-size: 2vw;  }
+    .arrivals .infos h3 { font-size: 1.5vw; margin-top: 3%; }
+    .arrivals img { margin-top: -10%; }
+    }
+
+@media (max-width: 480px) { 
+    .arrivals .title { font-size: 12vw; margin-bottom: 18vw; }
+    .arrivals .wrapper { height: 100vw; }
+    .arrivals .container { min-width: 50vw; margin-left: 3vw;}
+    .arrivals .img-container {  border-radius: 6vw; }
+
+    .arrivals .infos { margin-top: 5%;  }
+    .arrivals .infos h1 { font-size: 5vw;  }
+    .arrivals .infos h3 { font-size: 4vw;  }
+    }

@@ -65,9 +65,11 @@ const start = (event, clientX) => {
 export const handleDragStart = (event) => {
 
 
+    const dragImage = new Image();
+    dragImage.src = "/landing/blank.png";
 
-    event.dataTransfer.setDragImage(new Image(), 0, 0);
-    start(event, event.clientX)
+    event.dataTransfer.setDragImage(dragImage, 0, 0);
+        start(event, event.clientX)
 
 };
 export const handleTouchStart = (event) => {
