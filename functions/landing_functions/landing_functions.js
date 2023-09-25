@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { scrollTrigger } from '../vawzen/functions';
+import { scrollTrigger } from '../vawzen/scroll-interaction';
 
 
 
