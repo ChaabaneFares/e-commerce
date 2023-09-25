@@ -3,11 +3,14 @@
 .arrivals .title { text-align: center; font-size: 3vw; color: white; margin-bottom: 7vw;  }
 .arrivals .wrapper { height: 30vw; width: 100%; display: flex; cursor: pointer;  }
 .arrivals .container { min-width: 17.7vw; height: 100%; display: block; margin-left: 1vw;  }
-.arrivals .img-container { width: 100%; height: 83%; background-color: #101010; border-radius: 2vw; display: flex; justify-content: center; align-items: center;  }
-.arrivals img { width: 80%; height: 80%; object-fit: contain; object-position: center;  }
+.arrivals .img-container { overflow: hidden; width: 100%; height: 83%; background-color: #101010; border-radius: 2vw; display: flex; justify-content: center; align-items: center; position: relative; }
+.arrivals img:nth-child(1) { width: 80%; height: 80%; object-fit: contain; object-position: center;  }
+.arrivals img:nth-child(2) { position: absolute; width: 2vw; height: 2vw; top: 5%; right: 7.5%;  }
 .arrivals .infos { height: 17%; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3%;  }
 .arrivals .infos h1 { color: white; font-weight: 700; font-size: 1.2vw;  }
 .arrivals .infos h3 { color: #a1a1a1; font-weight: 700; font-size: 1.1vw;  }
+.arrivals .btn-container { position: absolute; width: 100%; height: 15%; bottom: 8%; display: flex; justify-content: center; align-items: center; transform: translateY(150%); transition: transform .2s; }
+.arrivals button { cursor: pointer; width: 60%; height: 82.5%; background: #f26c4f; border: none;  border-radius: 10vw; display: flex; justify-content: center; align-items: center; font-weight: 700; font-size: .85vw; letter-spacing: 0.03em;  }
 
 
 @media (max-width: 1024px) { 
@@ -17,6 +20,8 @@
     .arrivals .infos { gap: 5%;  }
     .arrivals .infos h1 { font-size: 1.5vw;  }
     .arrivals .infos h3 { font-size: 1.2vw;  }
+    .arrivals img:nth-child(2) { width: 2.5vw; height: 2.5vw; }
+    .arrivals button { font-size: 1.1vw; }
     }
 
 @media (max-width: 768px) { 
@@ -26,7 +31,10 @@
     .arrivals .infos { gap: 5%; margin-top: 5%;  }
     .arrivals .infos h1 { font-size: 2vw;  }
     .arrivals .infos h3 { font-size: 1.5vw; margin-top: 3%; }
-    .arrivals img { margin-top: -10%; }
+    .arrivals img:nth-child(1) { margin-top: -10%; }
+    .arrivals img:nth-child(2) { width: 3vw; height: 3vw; }
+    .arrivals .btn-container { position: absolute; height: 25%; bottom: 0%; transform: none;}
+    .arrivals button { width: 80%; height: 60.5%; background: #f26c4f;font-size: 1.5vw;}
     }
 
 @media (max-width: 480px) { 
@@ -38,4 +46,6 @@
     .arrivals .infos { margin-top: 5%;  }
     .arrivals .infos h1 { font-size: 5vw;  }
     .arrivals .infos h3 { font-size: 4vw;  }
+    .arrivals img:nth-child(2) { width: 6.5vw; height: 6.5vw; }
+    .arrivals button { width: 80%; height: 55.5%; background: #f26c4f;font-size: 3.5vw; letter-spacing: 0;  }
     }

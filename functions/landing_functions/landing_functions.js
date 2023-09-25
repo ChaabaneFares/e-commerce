@@ -1,18 +1,18 @@
 import { useCallback } from 'react';
 import { scrollTrigger } from '../vawzen/scroll-interaction';
-
+import { draging } from '../vawzen/drag-interaction';
 
 
 
 export function animations(windowSize, about, collection) {
 
-  useCallback(
+
+  const about_animation = useCallback(
     scrollTrigger(about, (v) => {
       about.current.style.transform = `translateY(${v[0]}vw)`;
     }, [[0, 5]], 0, 0.5),
     [about]
   );
-
 
 
   const collection_animation = collection.map((e, i) => {
@@ -43,7 +43,14 @@ export function arrivals_init(_ref) {
   return () => {
     const element = _ref.current
     const childrens = element.children
-    const mid_ground =(childrens.length * childrens[0].clientWidth) / 2
+    const mid_ground = (childrens.length * childrens[0].clientWidth) / 2
     element.style.transform = `translatex(${-mid_ground}px)`
+  }
+}
+
+export function arrivals_hover(event) {
+  if (innerWidth > 768) {
+    const hover = event.type === 'mouseenter'
+    event.currentTarget.children[2].style.transform = hover && !draging ? 'none' : 'translatey(150%)'
   }
 }

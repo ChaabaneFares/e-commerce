@@ -5,7 +5,7 @@ let nextTranslate = 'translateX(0px)';
 let position = ''
 let prevPosition = ''
 
-
+export let draging = false
 
 function width_counter(element) {
     let acc = 0
@@ -67,9 +67,9 @@ export const handleDragStart = (event) => {
 
     const dragImage = new Image();
     dragImage.src = "/landing/blank.png";
-
+    draging = true
     event.dataTransfer.setDragImage(dragImage, 0, 0);
-        start(event, event.clientX)
+    start(event, event.clientX)
 
 };
 export const handleTouchStart = (event) => {
@@ -102,7 +102,7 @@ const end = (event, clientX) => {
         const childrens = container.children.length
         const margin = extract_num(window.getComputedStyle(container.children[0]).marginLeft)
         const child_without_margin = (container_width / childrens) + (margin * 0.05)
-        const child_width_margin = child_without_margin + (margin * 1.1 )
+        const child_width_margin = child_without_margin + (margin * 1.1)
         let tracer = -Math.floor((transform - (position === 'right' ? innerWidth : 0)) / child_without_margin) - 1
 
         container.style.transition = '0.3s ease-out'
@@ -112,6 +112,7 @@ const end = (event, clientX) => {
 
 }
 export const handleDragEnd = (event) => {
+    draging = false
     end(event, event.clientX)
 };
 export const handleTouchEnd = (event) => {

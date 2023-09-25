@@ -3,7 +3,7 @@ import data from '@/data/landing/4_arrivals.json'
 import Link from 'next/link';
 import { handleDrag, handleDragStart, handleDragEnd, handleTouchMove, handleTouchStart, handleTouchEnd } from '@/functions/vawzen/drag-interaction';
 import { useEffect } from 'react';
-import { arrivals_init } from '@/functions/landing_functions/landing_functions';
+import { arrivals_hover, arrivals_init } from '@/functions/landing_functions/landing_functions';
 
 export default function arrivals({ _ref }) {
 
@@ -23,8 +23,14 @@ export default function arrivals({ _ref }) {
                 {[...data, ...data, ...data].map((e, i) => {
 
                     return <div draggable={true} key={i} className='container'  >
-                        <div className='img-container' >
+                        <div className='img-container' onMouseEnter={arrivals_hover} onMouseLeave={arrivals_hover} >
                             <img draggable={false} src={e.img} />
+                            <img className='img:nth-child(2)' src='/landing/arrivals/fav.svg' />
+                            <div className='btn-container'>
+                                <button>
+                                    Add to card
+                                </button>
+                            </div>
                         </div>
                         <div className='infos' >
                             <h1>{e.name}</h1>
