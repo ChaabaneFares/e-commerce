@@ -38,15 +38,17 @@ export function animations(windowSize, about, collection, arrivals) {
     const mid_ground = (childrens.length * childrens[0].clientWidth) / 2
     start = -mid_ground
   }
-  const arrivals_animation = useCallback(
-    scrollTrigger(arrivals, (v) => {
-      if (arrivals.current.style.transition !== 'transform 0.7s ease-out 0s') {
-        arrivals.current.style.transition = 'transform 0.7s ease-out'
-      }
-      arrivals.current.style.transform = `translateX(${v[0]}px)`
-    }, [[start, start - (windowSize * 0.3)]], 0, 0),
-    [arrivals]
-  );
+  if (windowSize > 768) {
+    const arrivals_animation = useCallback(
+      scrollTrigger(arrivals, (v) => {
+        if (arrivals.current.style.transition !== 'transform 0.7s ease-out 0s') {
+          arrivals.current.style.transition = 'transform 0.7s ease-out'
+        }
+        arrivals.current.style.transform = `translateX(${v[0]}px)`
+      }, [[start, start - (windowSize * 0.3)]], 0, 0),
+      [arrivals]
+    );
+  }
 
   return
 }

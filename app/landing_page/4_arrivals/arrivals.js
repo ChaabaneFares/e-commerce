@@ -2,12 +2,10 @@ import './arrivals.css'
 import data from '@/data/landing/4_arrivals.json'
 import Link from 'next/link';
 import { handleDrag, handleDragStart, handleDragEnd, handleTouchMove, handleTouchStart, handleTouchEnd } from '@/functions/vawzen/drag-interaction';
-import { useEffect } from 'react';
-import { arrivals_hover, arrivals_init } from '@/functions/landing_functions/landing_functions';
+import { arrivals_hover } from '@/functions/landing_functions/landing_functions';
 
 export default function arrivals({ _ref }) {
 
-    useEffect(arrivals_init(_ref), [])
 
     return (<>
         <section className='arrivals' >

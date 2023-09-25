@@ -136,9 +136,9 @@ export const disableDragShadow = (event) => {
 
 export function extract_num(str) {
     const match = str.match(/-?\d+(\.\d+)?(px|vw)/);
-    if (match[2] === 'vw') {
-        return match ? innerWidth * parseFloat(match[0]) / 100 : 0
-    } else {
+    // if (match[2] === 'vw') {
+    //     return match ? innerWidth * parseFloat(match[0]) / 100 : 0
+    // } else {
         return match ? parseFloat(match[0]) : 0
-    }
+    // }
 }
