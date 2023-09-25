@@ -10,9 +10,16 @@
 .arrivals .infos h1 { color: white; font-weight: 700; font-size: 1.2vw;  }
 .arrivals .infos h3 { color: #a1a1a1; font-weight: 700; font-size: 1.1vw;  }
 .arrivals .btn-container { position: absolute; width: 100%; height: 15%; bottom: 8%; display: flex; justify-content: center; align-items: center; transform: translateY(150%); transition: transform .2s; }
-.arrivals button { cursor: pointer; width: 60%; height: 82.5%; background: #f26c4f; border: none;  border-radius: 10vw; display: flex; justify-content: center; align-items: center; font-weight: 700; font-size: .85vw; letter-spacing: 0.03em;  }
+.arrivals .add-btn { cursor: pointer; width: 60%; height: 82.5%; background: #f26c4f; border: none;  border-radius: 10vw; display: flex; justify-content: center; align-items: center; font-weight: 700; font-size: .85vw; letter-spacing: 0.03em;  }
+.arrivals .more-btn-container { width: 15vw; height: 3.9vw; position: absolute; transform: translatex(-50%); left: 50%; margin-top: 7vw;  }
+.arrivals .more-btn{ width: 80%; height: 90%; background: white; border-radius: 100vw; color: black; font-size: 1.15vw; font-weight: 500;  }
 
 
+@media (max-width: 1366px) {
+    .arrivals .more-btn-container { width: 17.5vw; height: 5vw; }
+    .arrivals .more-btn{ font-size: 1.3vw; }
+
+ }
 @media (max-width: 1024px) { 
     .arrivals .title { font-size: 3.7vw; }
     .arrivals .wrapper { height: 37vw; }
@@ -21,7 +28,10 @@
     .arrivals .infos h1 { font-size: 1.5vw;  }
     .arrivals .infos h3 { font-size: 1.2vw;  }
     .arrivals img:nth-child(2) { width: 2.5vw; height: 2.5vw; }
-    .arrivals button { font-size: 1.1vw; }
+    .arrivals .add-btn { font-size: 1.1vw; }
+    .arrivals .more-btn-container { margin-top: 5.5vw; width: 20vw; height: 6vw;  }
+    .arrivals .more-btn{ font-size: 1.5vw; }
+
     }
 
 @media (max-width: 768px) { 
@@ -34,7 +44,10 @@
     .arrivals img:nth-child(1) { margin-top: -10%; }
     .arrivals img:nth-child(2) { width: 3vw; height: 3vw; }
     .arrivals .btn-container { position: absolute; height: 25%; bottom: 0%; transform: none;}
-    .arrivals button { width: 80%; height: 60.5%; background: #f26c4f;font-size: 1.5vw;}
+    .arrivals .add-btn { width: 80%; height: 60.5%; background: #f26c4f;font-size: 1.5vw;}
+    .arrivals .more-btn-container { margin-top: 10vw; width: 25vw; height: 7vw;  }
+    .arrivals .more-btn{ font-size: 1.7vw; }
+
     }
 
 @media (max-width: 480px) { 
@@ -47,5 +60,7 @@
     .arrivals .infos h1 { font-size: 5vw;  }
     .arrivals .infos h3 { font-size: 4vw;  }
     .arrivals img:nth-child(2) { width: 6.5vw; height: 6.5vw; }
-    .arrivals button { width: 80%; height: 55.5%; background: #f26c4f;font-size: 3.5vw; letter-spacing: 0;  }
+    .arrivals .add-btn { width: 80%; height: 55.5%; background: #f26c4f;font-size: 3.5vw; letter-spacing: 0;  }
+    .arrivals .more-btn-container { margin-top: 13vw; width: 58vw; height: 17vw;  }
+    .arrivals .more-btn{ font-size: 4.5vw; }
     }

@@ -23,9 +23,9 @@ export default function arrivals({ _ref }) {
                     return <div draggable={true} key={i} className='container'  >
                         <div className='img-container' onMouseEnter={arrivals_hover} onMouseLeave={arrivals_hover} >
                             <img draggable={false} src={e.img} />
-                            <img className='img:nth-child(2)' src='/landing/arrivals/fav.svg' />
+                            <img src='/landing/arrivals/fav.svg' />
                             <div className='btn-container'>
-                                <button>
+                                <button className='add-btn' >
                                     Add to card
                                 </button>
                             </div>
@@ -36,6 +36,12 @@ export default function arrivals({ _ref }) {
                         </div>
                     </div>
                 })}
+            </div>
+
+            <div className='more-btn-container' >
+                <button className='more-btn'>
+                    View more
+                </button>
             </div>
         </section>
     </>)

@@ -13,7 +13,7 @@
 .collection .arrow-container { display: flex; align-items: center;  }
 .collection .h1 { font-weight: 600;  }
 .collection .arrow { margin-left: 1.5vw; margin-top: .65vw; animation: collection-arrow 1.2s ease infinite; width: 4vw; }
-.collection .img { position: absolute; height: 90%; border-radius: 35%/50%; will-change: left; transition: 0.7s ease-out; width: 47.5%; object-fit: cover; object-position: center;  }
+.collection .img { position: absolute; height: 90%; border-radius: 35%/50%; will-change: transform; transition: 0.7s ease-out; width: 47.5%; object-fit: cover; object-position: center;  }
 .collection .wrapper:nth-child(even) .img { transform: translateX(100%); }
 .collection button { display: none;  }
 
@@ -32,7 +32,7 @@
 }
 @media (max-width: 768px) { 
   .collection { padding: 0 6%; width: 100%; }
-  .collection .img { height: 55%; transition: none; }
+  .collection .img { height: 55%; transition: 0.1s; }
 
   .collection button { margin-top: 10%; height: 15vw; width: 75%; border-radius: 30vw;   }
   .collection h4 { color: black; white-space: nowrap; font-weight: 500; font-size: 5.5vw; margin-left: -7vw;  }
