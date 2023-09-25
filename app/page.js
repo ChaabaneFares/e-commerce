@@ -46,7 +46,7 @@ export default function Home() {
 
 
       <style>{`
-            main { overflow: hidden;  }
+            main { overflow: hidden; background: black  }
             main div:first-child:not(div ~ div) { transition: transform 0.7s ease-out; }
       `}</style>
     </>
