@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Abbraccio Chair",
+        "price": "$ 250",
+        "img": "/landing/arrivals/0.jpg"
+    },
+    {
+        "name": "The Columns",
+        "price": "$ 300",
+        "img": "/landing/arrivals/1.jpg"
+    },
+    {
+        "name": "Bird Lamp",
+        "price": "$ 120",
+        "img": "/landing/arrivals/2.jpg"
+    },
+    {
+        "name": "Grano Lamp",
+        "price": "$ 180",
+        "img": "/landing/arrivals/3.jpg"
+    },
+    {
+        "name": "Sineta Lamp",
+        "price": "$ 200",
+        "img": "/landing/arrivals/4.png"
+    },
+    {
+        "name": "Moss Bench",
+        "price": "$ 350",
+        "img": "/landing/arrivals/5.jpg"
+    },
+    {
+        "name": "Saniba Sofa",
+        "price": "$ 700",
+        "img": "/landing/arrivals/6.png"
+    },
+    {
+        "name": "Rura Sofa",
+        "price": "$ 550",
+        "img": "/landing/arrivals/7.png"
+    }
+]
