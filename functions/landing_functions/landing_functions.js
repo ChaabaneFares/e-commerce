@@ -1,10 +1,10 @@
 import { useCallback } from 'react';
 import { scrollTrigger } from '../vawzen/scroll-interaction';
-import { draging } from '../vawzen/drag-interaction';
+import { draging, extract_num, prevTranslate, nextTranslate } from '../vawzen/drag-interaction';
 
 
 
-export function animations(windowSize, about, collection) {
+export function animations(windowSize, about, collection, arrivals) {
 
 
   const about_animation = useCallback(
@@ -31,6 +31,22 @@ export function animations(windowSize, about, collection) {
     );
   });
 
+  let start = extract_num(nextTranslate)
+  if (start === 0 && arrivals.current) {
+    const element = arrivals.current
+    const childrens = element.children
+    const mid_ground = (childrens.length * childrens[0].clientWidth) / 2
+    start = -mid_ground
+  }
+  const arrivals_animation = useCallback(
+    scrollTrigger(arrivals, (v) => {
+      if (arrivals.current.style.transition !== 'transform 0.7s ease-out 0s') {
+        arrivals.current.style.transition = 'transform 0.7s ease-out'
+      }
+      arrivals.current.style.transform = `translateX(${v[0]}px)`
+    }, [[start, start - (windowSize * 0.3)]], 0, 0),
+    [arrivals]
+  );
 
   return
 }

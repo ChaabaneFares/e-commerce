@@ -19,7 +19,7 @@ export default function Home() {
 
   useEffect(scrollEvent(setScrollY), []);
 
-  useEffect(resizeEvent(setWS, wrapper, animations(wS, about, collection)), [scrollY, wS]);
+  useEffect(resizeEvent(setWS, wrapper, animations(wS, about, collection, arrivals)), [scrollY, wS]);
 
 
   return (
@@ -48,7 +48,7 @@ export default function Home() {
       <style>{`
             main { overflow: hidden; background: black  }
             main div:first-child:not(div ~ div) { transition: transform 0.7s ease-out; }
-            
+
             @media (max-width: 768px) { 
               main div:first-child:not(div ~ div) { transition: none; }
             }

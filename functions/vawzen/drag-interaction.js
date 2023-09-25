@@ -1,7 +1,7 @@
 
 let initialDrag = 0
-let prevTranslate = 0
-let nextTranslate = 'translateX(0px)';
+export let prevTranslate = 0
+export let nextTranslate = 'translateX(0px)';
 let position = ''
 let prevPosition = ''
 
@@ -78,8 +78,6 @@ export const handleTouchStart = (event) => {
 
 const end = (event, clientX) => {
     const container = event.currentTarget
-    initialDrag = clientX;
-    nextTranslate = container.style.transform
     // const child = container.children[0]
     // const marginLeft = window.getComputedStyle(child).marginLeft;
 
@@ -107,6 +105,11 @@ const end = (event, clientX) => {
 
         container.style.transition = '0.3s ease-out'
         container.style.transform = `translateX(-${((tracer) * child_without_margin) - (position === 'right' ? innerWidth - child_width_margin : 0)}px)`
+
+
+        initialDrag = clientX;
+        nextTranslate = container.style.transform
+    
     }, 0);
 
 
@@ -131,7 +134,7 @@ export const disableDragShadow = (event) => {
 
 
 
-function extract_num(str) {
+export function extract_num(str) {
     const match = str.match(/-?\d+(\.\d+)?(px|vw)/);
     if (match[2] === 'vw') {
         return match ? innerWidth * parseFloat(match[0]) / 100 : 0
