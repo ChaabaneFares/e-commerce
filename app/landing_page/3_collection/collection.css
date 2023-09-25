@@ -32,7 +32,7 @@
 }
 @media (max-width: 768px) { 
   .collection { padding: 0 6%; width: 100%; }
-  .collection .img { height: 55%;  }
+  .collection .img { height: 55%; transition: none; }
 
   .collection button { margin-top: 10%; height: 15vw; width: 75%; border-radius: 30vw;   }
   .collection h4 { color: black; white-space: nowrap; font-weight: 500; font-size: 5.5vw; margin-left: -7vw;  }

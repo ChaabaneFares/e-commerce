@@ -31,25 +31,7 @@ export function animations(windowSize, about, collection, arrivals) {
     );
   });
 
-  let start = extract_num(nextTranslate)
-  if (start === 0 && arrivals.current) {
-    const element = arrivals.current
-    const childrens = element.children
-    const mid_ground = (childrens.length * childrens[0].clientWidth) / 2
-    start = -mid_ground
-  }
-  if (windowSize > 768) {
-    const arrivals_animation = useCallback(
-      scrollTrigger(arrivals, (v) => {
-        if (arrivals.current.style.transition !== 'transform 0.7s ease-out 0s') {
-          arrivals.current.style.transition = 'transform 0.7s ease-out'
-        }
-        arrivals.current.style.transform = `translateX(${v[0]}px)`
-      }, [[start, start - (windowSize * 0.3)]], 0, 0),
-      [arrivals]
-    );
-  }
-
+  arrivals_animation(arrivals, windowSize)
   return
 }
 
@@ -71,4 +53,26 @@ export function arrivals_hover(event) {
     const hover = event.type === 'mouseenter'
     event.currentTarget.children[2].style.transform = hover && !draging ? 'none' : 'translatey(150%)'
   }
+}
+
+
+
+function arrivals_animation(arrivals, windowSize) {
+
+  let start = extract_num(nextTranslate)
+  if (start === 0 && arrivals.current) {
+    const element = arrivals.current
+    const childrens = element.children
+    const mid_ground = (childrens.length * childrens[0].clientWidth) / 2
+    start = -mid_ground
+  }
+  useCallback(
+    scrollTrigger(arrivals, (v) => {
+      if (arrivals.current.style.transition !== 'transform 0.7s ease-out 0s') {
+        arrivals.current.style.transition = 'transform 0.7s ease-out'
+      }
+      arrivals.current.style.transform = `translateX(${v[0]}px)`
+    }, [[start, start - (windowSize * 0.3)]], 0, 0),
+    [arrivals]
+  );
 }

@@ -14,7 +14,7 @@ export default function arrivals({ _ref }) {
 
 
 
-            <div ref={_ref} className='wrapper'
+            <div ref={_ref} className='wrapper' style={{ touchAction: 'none' }}
                 onDragStart={handleDragStart} onDragEnd={handleDragEnd} onDrag={handleDrag}
                 onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd} onTouchMove={handleTouchMove}
             >

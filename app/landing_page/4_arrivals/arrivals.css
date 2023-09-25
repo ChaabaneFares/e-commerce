@@ -1,7 +1,7 @@
 
 .arrivals { margin-top: 16vw;  }
 .arrivals .title { text-align: center; font-size: 3vw; color: white; margin-bottom: 7vw;  }
-.arrivals .wrapper { height: 30vw; width: 100%; display: flex; cursor: pointer;  }
+.arrivals .wrapper { touch-action: none; height: 30vw; width: 100%; display: flex; cursor: pointer;  }
 .arrivals .container { min-width: 17.7vw; height: 100%; display: block; margin-left: 1vw;  }
 .arrivals .img-container { overflow: hidden; width: 100%; height: 83%; background-color: #101010; border-radius: 2vw; display: flex; justify-content: center; align-items: center; position: relative; }
 .arrivals img:nth-child(1) { width: 80%; height: 80%; object-fit: contain; object-position: center;  }
