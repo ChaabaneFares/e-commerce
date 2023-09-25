@@ -1,11 +1,11 @@
 
 let initialDrag = 0
-let prevTranslate = 0
-let nextTranslate = 'translateX(0px)';
+export let prevTranslate = 0
+export let nextTranslate = 'translateX(0px)';
 let position = ''
 let prevPosition = ''
 
-
+export let draging = false
 
 function width_counter(element) {
     let acc = 0
@@ -65,8 +65,10 @@ const start = (event, clientX) => {
 export const handleDragStart = (event) => {
 
 
-
-    event.dataTransfer.setDragImage(new Image(), 0, 0);
+    const dragImage = new Image();
+    dragImage.src = "/landing/blank.png";
+    draging = true
+    event.dataTransfer.setDragImage(dragImage, 0, 0);
     start(event, event.clientX)
 
 };
@@ -76,8 +78,6 @@ export const handleTouchStart = (event) => {
 
 const end = (event, clientX) => {
     const container = event.currentTarget
-    initialDrag = clientX;
-    nextTranslate = container.style.transform
     // const child = container.children[0]
     // const marginLeft = window.getComputedStyle(child).marginLeft;
 
@@ -100,16 +100,22 @@ const end = (event, clientX) => {
         const childrens = container.children.length
         const margin = extract_num(window.getComputedStyle(container.children[0]).marginLeft)
         const child_without_margin = (container_width / childrens) + (margin * 0.05)
-        const child_width_margin = child_without_margin + (margin * 1.1 )
+        const child_width_margin = child_without_margin + (margin * 1.1)
         let tracer = -Math.floor((transform - (position === 'right' ? innerWidth : 0)) / child_without_margin) - 1
 
         container.style.transition = '0.3s ease-out'
         container.style.transform = `translateX(-${((tracer) * child_without_margin) - (position === 'right' ? innerWidth - child_width_margin : 0)}px)`
+
+
+        initialDrag = clientX;
+        nextTranslate = container.style.transform
+    
     }, 0);
 
 
 }
 export const handleDragEnd = (event) => {
+    draging = false
     end(event, event.clientX)
 };
 export const handleTouchEnd = (event) => {
@@ -128,11 +134,11 @@ export const disableDragShadow = (event) => {
 
 
 
-function extract_num(str) {
+export function extract_num(str) {
     const match = str.match(/-?\d+(\.\d+)?(px|vw)/);
-    if (match[2] === 'vw') {
-        return match ? innerWidth * parseFloat(match[0]) / 100 : 0
-    } else {
+    // if (match[2] === 'vw') {
+    //     return match ? innerWidth * parseFloat(match[0]) / 100 : 0
+    // } else {
         return match ? parseFloat(match[0]) : 0
-    }
+    // }
 }

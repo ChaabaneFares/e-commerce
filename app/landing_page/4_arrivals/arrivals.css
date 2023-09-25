@@ -1,0 +1,66 @@
+
+.arrivals { margin-top: 16vw;  }
+.arrivals .title { text-align: center; font-size: 3vw; color: white; margin-bottom: 7vw;  }
+.arrivals .wrapper { touch-action: none; height: 30vw; width: 100%; display: flex; cursor: pointer;  }
+.arrivals .container { min-width: 17.7vw; height: 100%; display: block; margin-left: 1vw;  }
+.arrivals .img-container { overflow: hidden; width: 100%; height: 83%; background-color: #101010; border-radius: 2vw; display: flex; justify-content: center; align-items: center; position: relative; }
+.arrivals img:nth-child(1) { width: 80%; height: 80%; object-fit: contain; object-position: center;  }
+.arrivals img:nth-child(2) { position: absolute; width: 2vw; height: 2vw; top: 5%; right: 7.5%;  }
+.arrivals .infos { height: 17%; width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3%;  }
+.arrivals .infos h1 { color: white; font-weight: 700; font-size: 1.2vw;  }
+.arrivals .infos h3 { color: #a1a1a1; font-weight: 700; font-size: 1.1vw;  }
+.arrivals .btn-container { position: absolute; width: 100%; height: 15%; bottom: 8%; display: flex; justify-content: center; align-items: center; transform: translateY(150%); transition: transform .2s; }
+.arrivals .add-btn { cursor: pointer; width: 60%; height: 82.5%; background: #f26c4f; border: none;  border-radius: 10vw; display: flex; justify-content: center; align-items: center; font-weight: 700; font-size: .85vw; letter-spacing: 0.03em;  }
+.arrivals .more-btn-container { width: 15vw; height: 3.9vw; position: absolute; transform: translatex(-50%); left: 50%; margin-top: 7vw;  }
+.arrivals .more-btn{ width: 80%; height: 90%; background: white; border-radius: 100vw; color: black; font-size: 1.15vw; font-weight: 500;  }
+
+
+@media (max-width: 1366px) {
+    .arrivals .more-btn-container { width: 17.5vw; height: 5vw; }
+    .arrivals .more-btn{ font-size: 1.3vw; }
+
+ }
+@media (max-width: 1024px) { 
+    .arrivals .title { font-size: 3.7vw; }
+    .arrivals .wrapper { height: 37vw; }
+    .arrivals .container { min-width: 21.5vw; margin-left: 1.5vw;  }
+    .arrivals .infos { gap: 5%;  }
+    .arrivals .infos h1 { font-size: 1.5vw;  }
+    .arrivals .infos h3 { font-size: 1.2vw;  }
+    .arrivals img:nth-child(2) { width: 2.5vw; height: 2.5vw; }
+    .arrivals .add-btn { font-size: 1.1vw; }
+    .arrivals .more-btn-container { margin-top: 5.5vw; width: 20vw; height: 6vw;  }
+    .arrivals .more-btn{ font-size: 1.5vw; }
+
+    }
+
+@media (max-width: 768px) { 
+    .arrivals .title { font-size: 4vw; margin-bottom: 8vw; }
+    .arrivals .wrapper { height: 42vw; }
+    .arrivals .container { min-width: 24vw; margin-left: 1.5vw;  }
+    .arrivals .infos { gap: 5%; margin-top: 5%;  }
+    .arrivals .infos h1 { font-size: 2vw;  }
+    .arrivals .infos h3 { font-size: 1.5vw; margin-top: 3%; }
+    .arrivals img:nth-child(1) { margin-top: -10%; }
+    .arrivals img:nth-child(2) { width: 3vw; height: 3vw; }
+    .arrivals .btn-container { position: absolute; height: 25%; bottom: 0%; transform: none;}
+    .arrivals .add-btn { width: 80%; height: 60.5%; background: #f26c4f;font-size: 1.5vw;}
+    .arrivals .more-btn-container { margin-top: 10vw; width: 25vw; height: 7vw;  }
+    .arrivals .more-btn{ font-size: 1.7vw; }
+
+    }
+
+@media (max-width: 480px) { 
+    .arrivals .title { font-size: 12vw; margin-bottom: 18vw; }
+    .arrivals .wrapper { height: 100vw; }
+    .arrivals .container { min-width: 50vw; margin-left: 3vw;}
+    .arrivals .img-container {  border-radius: 6vw; }
+
+    .arrivals .infos { margin-top: 5%;  }
+    .arrivals .infos h1 { font-size: 5vw;  }
+    .arrivals .infos h3 { font-size: 4vw;  }
+    .arrivals img:nth-child(2) { width: 6.5vw; height: 6.5vw; }
+    .arrivals .add-btn { width: 80%; height: 55.5%; background: #f26c4f;font-size: 3.5vw; letter-spacing: 0;  }
+    .arrivals .more-btn-container { margin-top: 13vw; width: 58vw; height: 17vw;  }
+    .arrivals .more-btn{ font-size: 4.5vw; }
+    }
