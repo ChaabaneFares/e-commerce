@@ -14,7 +14,7 @@
 .collection .h1 { font-weight: 600;  }
 .collection .arrow { margin-left: 1.5vw; margin-top: .65vw; animation: collection-arrow 1.2s ease infinite; width: 4vw; }
 .collection .img { position: absolute; height: 90%; border-radius: 35%/50%; will-change: left; transition: 0.7s ease-out; width: 47.5%; object-fit: cover; object-position: center;  }
-.collection .wrapper:nth-child(even) .img { left: calc(100% - 47.5%); }
+.collection .wrapper:nth-child(even) .img { transform: translateX(100%); }
 .collection button { display: none;  }
 
 
@@ -24,8 +24,8 @@
    .collection .img { position: relative; height: 70%; width: 100%;  }
    .collection .wrapper { flex-direction: column; overflow: visible; }
    .collection .arrow { margin-left: 0; margin-top: 0; animation: collection-arrow-sd 1.5s ease infinite; width: 3vw;  position: absolute; right: 3vw;}
-   .collection .wrapper:nth-child(odd) .img { left: 125% }
-   .collection .wrapper:nth-child(even) .img { left: -125% }
+   .collection .wrapper:nth-child(odd) .img {transform: translateX(-125%)}
+   .collection .wrapper:nth-child(even) .img {transform: translateX(125%)}
    .collection button { margin-top: 5%; background: white; outline: none; border: none; height: 8.5vw; width: 26.2vw; border-radius: 5.48vw; display: flex; align-items: center; justify-content: center; position: relative;  }
    .collection h4 { color: #575656; white-space: nowrap; font-weight: 600; font-size: 2.1vw; margin-left: -3.5vw;  }
   
