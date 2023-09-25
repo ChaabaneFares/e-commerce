@@ -48,6 +48,11 @@ export default function Home() {
       <style>{`
             main { overflow: hidden; background: black  }
             main div:first-child:not(div ~ div) { transition: transform 0.7s ease-out; }
+            
+            @media (max-width: 768px) { 
+              main div:first-child:not(div ~ div) { transition: none; }
+            }
+
       `}</style>
     </>
   )
